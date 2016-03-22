@@ -1,12 +1,12 @@
 define([
   '../dispatcher/AppDispatcher',
   'eventEmitter',
-  '../constants/MenuConstants',
+  '../constants/FlickrConstants',
   'utility/object-assign'
 ], function (
   AppDispatcher,
   EventEmitter,
-  MenuConstants,
+  FlickrConstants,
   assign
 ) {
 
@@ -15,14 +15,15 @@ define([
 var CHANGE_EVENT = 'change';
 
 // store private variables
-var _favorites = [];
+var _photos = [];  // currently photos
 
-var FavoriteStore = assign({}, EventEmitter.prototype, {
+var MenusStore = assign({}, EventEmitter.prototype, {
 
   // Store state accessors
   //-------------------------
-  getFavorites: function() {
-    return _favorites;
+
+  getPhotos: function() {
+    return _photos;
   },
 
   // Store state change
@@ -42,13 +43,12 @@ var FavoriteStore = assign({}, EventEmitter.prototype, {
 
 // Register callback to handle actions
 AppDispatcher.register(function(action) {
-  var text;
+  console.log('action', action);
 
   switch(action.actionType) {
-
-    case MenuConstants.FAVORITES_FETCH:
-      _favorites = action.favorites;
-      FavoriteStore.emitChange();
+    case FlickrConstants.PHOTOS_FETCH:
+      _photos.push(action.photos);
+      PhotoStore.emitChange();
       break;
 
     default:
@@ -56,6 +56,6 @@ AppDispatcher.register(function(action) {
   }
 });
 
-return FavoriteStore;
+return MenusStore;
 
 });

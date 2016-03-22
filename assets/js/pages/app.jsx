@@ -1,12 +1,10 @@
 define([
   'react', 'react-router', 'moment',
-  // 'stores/LocationStore', 'actions/MenuActions',
-  // 'components/mdl/Drawer', 'components/SearchDrawer', 'components/theme/Title',
+  'stores/PhotoStore', 'actions/FlickrActions',
   'utility/helpers'
 ], function (
   React, Router, moment,
-  // LocationStore, MenuActions,
-  // Drawer, SearchDrawer, Title,
+  PhotoStore, FlickrActions,
   helpers
 ) {
 
@@ -15,20 +13,22 @@ define([
     // Utility Functions
     //-------------------------
     updateStateFromStore: function () {
+      console.log('triggered');
       this.setState(this.getStateFromStore());
     },
 
     getStateFromStore: function () {
-      //  return { locations: LocationStore.getLocations() }
+       return { photos: PhotoStore.getPhotos() }
      },
 
 
     // Definition
     //-------------------------
-    // getInitialState: function () {
-    // },
+    getInitialState: function () {
+      return this.getStateFromStore();
+    },
 
-    mixins: [ Router.Navigation, Router.State ],
+    // mixins: [ Router.Navigation, Router.State ],
 
     // Events
     //-------------------------
@@ -36,14 +36,13 @@ define([
     // Lifecycle Methods
     //-------------------------
     componentDidMount: function () {
-      // LocationStore.addChangeListener(this.updateStateFromStore);
+      PhotoStore.addChangeListener(this.updateStateFromStore);
     },
 
-    componentWillMount: function () {
-    },
+    componentWillMount: function () { },
 
     componentWillUnmount: function () {
-      // LocationStore.removeChangeListener(this.updateStateFromStore);
+      PhotoStore.removeChangeListener(this.updateStateFromStore);
     },
 
     componentDidUpdate: function () {
@@ -51,13 +50,24 @@ define([
       if (componentHandler) { componentHandler.upgradeDom(); }
     },
 
+    renderPage: function () {
+      // console.log(this.state.photos + "count");
+      return this.state.photos.photo.map(function (photo) {
+        // console.log(photo);
+        return <div>{photo.title + " " + photo.id}</div>
+      });
+    },
+
     // NOTE: You CANNOT USE MDL classes on the ROOTDOM element that ReactRouter is binding too...
     // the app will still work but you will throw an error on page transitions because MDL is manipulating the ROOTDOM node.
     // So this is a No No.
     render: function () {
+      // console.log(this.state.photos.length);
+      console.log('render');
       return <div>
         <div className="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
           App Running!
+          {this.state.photos.length > 0 ? this.renderPage() : null}
         </div>
       </div>;
     }

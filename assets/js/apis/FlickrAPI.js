@@ -1,37 +1,18 @@
 define([
-  'moment',
-  'utility/helpers',
-  'es6-shim'
+  'utility/helpers'
 ], function (
-  moment,
-  DistanceMatrixApi,
-  helpers,
-  shim
+  helpers
 ) {
 
-  var location = helpers.parseUri(window.location);
-
-  var apiMap = {
-    local: 'api/',
-    dev: 'api.hfs.purdue.edu/',
-    qa: 'qa.api.hfs.purdue.edu/',
-    prod: 'api.hfs.purdue.edu/'
-  }
-
-  var hostMap = {
-    "dev.dining.purdue.edu": apiMap.qa,
-    "qa.dining.purdue.edu": apiMap.qa,
-    "dining.purdue.edu": apiMap.prod
-  }
-
-  var apiHost = (typeof hostMap[location.host] !== "undefined") ? hostMap[location.host] : location.authority + "/" + apiMap['local'];
-  var apiPath = "menus/v2/"
-  var apiRoot = location.protocol + "://" + apiHost + apiPath;
-
-  var MenusApi = {
+  var FlickrAPI = {
+    fetchPhotos: function (success) {
+      helpers.ajax('GET', 'https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=679e25f8cb85b7299cec2734962044ac&user_id=35067687@N04&format=json&nojsoncallback=1', function (xhr, data) {
+        console.log(data);
+      });
+    }
   }; // End Api
 
-  return MenusApi;
+  return FlickrAPI;
 
 }); // End Module
 

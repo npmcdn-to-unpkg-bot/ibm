@@ -48,7 +48,7 @@ define(['moment'], function (moment) {
         // Check if the XMLHttpRequest object has a "withCredentials" property.
         // "withCredentials" only exists on XMLHTTPRequest2 objects.
 
-        xhr.withCredentials = true;
+        // xhr.withCredentials = true;
         xhr.open(method, url, true);
 
       } else if (typeof XDomainRequest != "undefined") {

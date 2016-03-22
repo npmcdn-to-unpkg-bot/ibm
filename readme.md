@@ -1,14 +1,66 @@
-# Menus Web
+# IBM FED Test
 
 ###### Notes
 
     App runs from **public_html/**
 
-    The correct path should be **hostname/menus** in all environments or the api lookup will fail
-
     Your host should rewrite all 404 requests to / or /index.html or the routing will fail if you try to load any URL or refresh the app from outside the root.
 
     The inner folder structure needs to match the folder structure of your deployment target or URL routing won't work.
+
+---
+
+
+##### API Notes
+  > API KEY: 679e25f8cb85b7299cec2734962044ac
+  > USERID: 35067687@N04
+  > URL: https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=679e25f8cb85b7299cec2734962044ac&user_id=35067687@N04&format=json&nojsoncallback=1
+
+flickr.people.getPublicPhotos
+
+
+
+Photosets
+https://api.flickr.com/services/rest/?method=flickr.photosets.getList&api_key=679e25f8cb85b7299cec2734962044ac&user_id=35067687@N04&format=json&nojsoncallback=1
+
+https://www.flickr.com/services/api/flickr.photosets.getInfo.html
+
+
+
+### Search
+https://www.flickr.com/services/api/flickr.photos.search.html
+
+
+
+
+https://www.flickr.com/services/api/flickr.photos.getSizes.html
+
+https://www.flickr.com/services/api/flickr.galleries.getListForPhoto.html
+flickr.galleries.getListForPhoto
+Return the list of galleries to which a photo has been added. Galleries are returned sorted by date which the photo was added to the gallery.
+
+
+
+### Sort By
+
+Uploaded
+
+Date Taken
+
+
+### Filters
+Latest
+https://www.flickr.com/services/api/flickr.photos.getRecent.html
+
+Popular
+https://www.flickr.com/services/api/flickr.stats.getPopularPhotos.html
+
+Tags
+https://www.flickr.com/services/api/flickr.tags.getListUser.html
+https://api.flickr.com/services/rest/?method=flickr.tags.getListUser&api_key=679e25f8cb85b7299cec2734962044ac&user_id=35067687@N04&format=json&nojsoncallback=1
+
+
+https://www.flickr.com/services/api/flickr.photos.getInfo.html
 
 ---
 
@@ -49,23 +101,7 @@ You may need to re-run **grunt build** before you can continue testing.
 
 ---
 
-##### Authenticating CAS
-
-You **CANNOT** authenticate via the proxy.
-
-You **MUST** make a request over _*.csds.purdue.edu_ or _*.hfs.purdue.edu_ in order for the browser to send the necessary CommonLogin cookie.
-
-If you are running from with our subnet you can use your machines domain + the appropriate port.
-  > host <- ipaddress ->
-
-You will have to use a VirtualHost when running over a VPN.
-
-You can enter an infinite authentication loop on routes that require authentication such as */favorites* if you fail to pass the CommonLogin cookie correctly.
-
-
----
-
-##### Docker
+<!-- ##### Docker
 
 Build the image
 
@@ -94,4 +130,4 @@ view the ports of the image
 
 view the IP of the VM
 
-> docker-machine ip default
+> docker-machine ip default -->

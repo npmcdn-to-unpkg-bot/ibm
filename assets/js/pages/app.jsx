@@ -2,11 +2,13 @@ define([
   'react', 'react-router',
   'stores/PhotoStore', 'actions/FlickrActions',
   'components/mdl/Header', 'components/mdl/Drawer',
+  'components/PhotoStream',
   'utility/helpers'
 ], function (
   React, Router,
   PhotoStore, FlickrActions,
   Header, Drawer,
+  PhotoStream,
   helpers
 ) {
 
@@ -48,19 +50,12 @@ define([
       if (componentHandler) { componentHandler.upgradeDom(); }
     },
 
-    renderPage: function () {
-      return this.state.photos.map(function (photo, index) {
-          return <div key={photo.id}>
-            {photo.title + " " + photo.images.thumb}
-            <img src={photo.images.thumb} height="100px" />
-          </div>
-        });
-    },
-
     // NOTE: You CANNOT USE MDL classes on the ROOTDOM element that ReactRouter is binding too...
     // the app will still work but you will throw an error on page transitions because MDL is manipulating the ROOTDOM node. So this is a No No.  You must also render the mdl-layout__content or MDL will throw an error.
 
     render: function () {
+      var content = this.state.photos.length > 0 ? <PhotoStream photos={this.state.photos} /> : null;
+
       return <div>
 
         <div className="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
@@ -71,7 +66,7 @@ define([
 
         <div className="mdl-layout__content">
 
-          {this.state.photos.length > 0 ? this.renderPage() : null}
+          {content}
 
         </div>
 

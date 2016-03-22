@@ -12,7 +12,16 @@ module.exports = {
     tasks: ['newer:react', 'requirejs:dev']
   },
   requirejs: {
-    files: [ 'assets/js/app.js', 'assets/js/apis/*.js', 'assets/js/utility/*.js' ],
+    files: [
+      'assets/js/app.js',
+      'assets/js/apis/*.js',
+      'assets/js/utility/*.js',
+      'assets/js/actions/*.js',
+      'assets/js/dispatcher/*.js',
+      'assets/js/stores/*.js',
+      'assets/js/constants/*.js',
+      'assets/js/apis/*.js'
+    ],
     tasks: [ 'requirejs:dev' ]
   },
   configFiles: {

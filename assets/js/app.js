@@ -20,8 +20,3 @@ require([
   }
 
 });
-
-
-// 'actions/MenuActions'
-
-// MenuActions

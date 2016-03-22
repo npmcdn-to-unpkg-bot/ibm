@@ -1,10 +1,12 @@
 define([
-  'react', 'react-router', 'moment',
+  'react', 'react-router',
   'stores/PhotoStore', 'actions/FlickrActions',
+  'components/mdl/Header',
   'utility/helpers'
 ], function (
-  React, Router, moment,
+  React, Router,
   PhotoStore, FlickrActions,
+  Header,
   helpers
 ) {
 
@@ -13,7 +15,6 @@ define([
     // Utility Functions
     //-------------------------
     updateStateFromStore: function () {
-      console.log('triggered');
       this.setState(this.getStateFromStore());
     },
 
@@ -47,14 +48,16 @@ define([
 
     componentDidUpdate: function () {
       // Register Google MDL components
-      if (componentHandler) { componentHandler.upgradeDom(); }
+      // if (componentHandler) { componentHandler.upgradeDom(); }
+    },
+
+    renderLoading: function () {
+
     },
 
     renderPage: function () {
-      // console.log(this.state.photos + "count");
-      return this.state.photos.photo.map(function (photo) {
-        // console.log(photo);
-        return <div>{photo.title + " " + photo.id}</div>
+      return this.state.photos.map(function (photo, index) {
+        return <div key={photo.id}>{photo.title + " " + photo.id}</div>
       });
     },
 
@@ -62,13 +65,44 @@ define([
     // the app will still work but you will throw an error on page transitions because MDL is manipulating the ROOTDOM node.
     // So this is a No No.
     render: function () {
-      // console.log(this.state.photos.length);
-      console.log('render');
+
       return <div>
-        <div className="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
-          App Running!
-          {this.state.photos.length > 0 ? this.renderPage() : null}
+
+        {Header}
+
+        <div className="android-drawer mdl-layout__drawer">
+          <span className="mdl-layout-title">
+            <img className="android-logo-image" src="images/android-logo-white.png" />
+          </span>
+          <nav className="mdl-navigation">
+            <a className="mdl-navigation__link" href="">Phones</a>
+            <a className="mdl-navigation__link" href="">Tablets</a>
+            <a className="mdl-navigation__link" href="">Wear</a>
+            <a className="mdl-navigation__link" href="">TV</a>
+            <a className="mdl-navigation__link" href="">Auto</a>
+            <a className="mdl-navigation__link" href="">One</a>
+            <a className="mdl-navigation__link" href="">Play</a>
+            <div className="android-drawer-separator"></div>
+            <span className="mdl-navigation__link" href="">Versions</span>
+            <a className="mdl-navigation__link" href="">Lollipop 5.0</a>
+            <a className="mdl-navigation__link" href="">KitKat 4.4</a>
+            <a className="mdl-navigation__link" href="">Jelly Bean 4.3</a>
+            <a className="mdl-navigation__link" href="">Android history</a>
+            <div className="android-drawer-separator"></div>
+            <span className="mdl-navigation__link" href="">Resources</span>
+            <a className="mdl-navigation__link" href="">Official blog</a>
+            <a className="mdl-navigation__link" href="">Android on Google+</a>
+            <a className="mdl-navigation__link" href="">Android on Twitter</a>
+            <div className="android-drawer-separator"></div>
+            <span className="mdl-navigation__link" href="">For developers</span>
+            <a className="mdl-navigation__link" href="">App developer resources</a>
+            <a className="mdl-navigation__link" href="">Android Open Source Project</a>
+            <a className="mdl-navigation__link" href="">Android SDK</a>
+          </nav>
         </div>
+
+        {this.state.photos.length > 0 ? this.renderPage() : null}
+
       </div>;
     }
 

@@ -5,16 +5,14 @@ define([
   'react-router'
 ], function (
   AppDispatcher,
-  MenuConstants,
-  MenusApi,
+  FlickrConstants,
+  FlickrAPI,
   Router
 ) {
 
 var FlickrActions = {
   fetchPhotos: function() {
-    console.log('test');
     FlickrAPI.fetchPhotos(function (photos) {
-      console.log('test2');
       AppDispatcher.dispatch({
         actionType: FlickrConstants.PHOTOS_FETCH,
         photos: photos

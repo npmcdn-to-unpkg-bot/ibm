@@ -17,7 +17,7 @@ var CHANGE_EVENT = 'change';
 // store private variables
 var _photos = [];  // currently photos
 
-var MenusStore = assign({}, EventEmitter.prototype, {
+var PhotoStore = assign({}, EventEmitter.prototype, {
 
   // Store state accessors
   //-------------------------
@@ -43,19 +43,16 @@ var MenusStore = assign({}, EventEmitter.prototype, {
 
 // Register callback to handle actions
 AppDispatcher.register(function(action) {
-  console.log('action', action);
-
   switch(action.actionType) {
     case FlickrConstants.PHOTOS_FETCH:
-      _photos.push(action.photos);
+      _photos = action.photos;
       PhotoStore.emitChange();
       break;
-
     default:
       // no op
   }
 });
 
-return MenusStore;
+return PhotoStore;
 
 });

@@ -7,7 +7,6 @@ define([
   var FlickrAPI = {
     fetchPhotos: function (success) {
       helpers.ajax('GET', 'https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=679e25f8cb85b7299cec2734962044ac&user_id=35067687@N04&format=json&nojsoncallback=1&per_page=10', function (xhr, data) {
-        console.log(data);
         success(data.photos.photo);
       });
     }

@@ -19,4 +19,6 @@ require([
     });
   }
 
+  if (componentHandler) { componentHandler.upgradeDom(); }
+
 });

@@ -10,10 +10,9 @@ define([
     },
     render: function() {
       return <div className="photostream">
-        Photostream
         {this.props.photos.map(function (photo, index) {
-            return <div key={photo.id}>
-              <img src={photo.images.thumb} height="100px" />
+            return <div className="photostream-photo" key={photo.id}>
+              <img src={photo.images.thumb} />
             </div>
           })}
       </div>

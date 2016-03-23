@@ -4,12 +4,38 @@ define([
   helpers
 ) {
 
+  var apiKey = '679e25f8cb85b7299cec2734962044ac';
+  var userId = '35067687@N04';
+
   var FlickrAPI = {
-    fetchPhotos: function (success) {
-      helpers.ajax('GET', 'https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=679e25f8cb85b7299cec2734962044ac&user_id=35067687@N04&format=json&nojsoncallback=1&per_page=10', function (xhr, data) {
+    fetchPhotos: function (success, count) {
+
+      var photoCount = count = count || 25;
+
+      var url = 'https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=' + apiKey + '&user_id=' + userId + '&format=json&nojsoncallback=1&per_page=' + photoCount;
+
+      helpers.ajax('GET', url, function (xhr, data) {
         success(data.photos.photo);
       });
-    }
+    },
+
+    searchPhotos: function () {
+      var url = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=' + apiKey + '&user_id=' + userId + '&format=json&nojsoncallback=1&per_page=100';
+
+      helpers.ajax('GET', url, function (xhr, data) {
+        success(data.photos.photo);
+      });
+    },
+
+    fetchImageInfo: function (photoId, success) {
+      var url = 'https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=' + apiKey + '&user_id=' + userId + '&format=json&nojsoncallback=1&photo_id=' + photoId;
+
+      helpers.ajax('GET', url, function (xhr, data) {
+        success(data.photo);
+      });
+    },
+
+
   }; // End Api
 
   return FlickrAPI;

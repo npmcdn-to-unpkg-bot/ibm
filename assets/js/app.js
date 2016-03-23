@@ -1,5 +1,7 @@
 "use strict";
 
+window.favorites = [];
+
 // Launch the App
 //-------------------------
 require([

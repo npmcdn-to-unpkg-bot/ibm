@@ -33,7 +33,21 @@ define(['moment'], function (moment) {
   	}
   };
 
-  return {
+  var helpers = {
+
+    favorites: {
+      list: [],
+      contains: function (id) {
+        return helpers.favorites.list.indexOf(id) > -1;
+      },
+      toggle: function (id) {
+        if (helpers.favorites.contains(id)) {
+          helpers.favorites.list.splice(helpers.favorites.list.indexOf(id), 1);
+        } else {
+          helpers.favorites.list.push(id);
+        }
+      }
+    },
 
     // URL Parsing
     //-------------------------
@@ -174,4 +188,7 @@ define(['moment'], function (moment) {
     }
 
   }
+
+  return helpers;
+
 });

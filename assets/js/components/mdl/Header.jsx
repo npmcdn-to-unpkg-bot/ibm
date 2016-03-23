@@ -1,11 +1,7 @@
 define([
-  'react',
-  'react-router'
-  // 'classnames',
+  'react', 'react-router'
 ], function(
-  React,
-  Router
-  // classNames
+  React, Router
 ) {
 
   return React.createClass({
@@ -13,7 +9,7 @@ define([
       return <div className="mdl-layout__header mdl-layout__header--waterfall">
         <div className="mdl-layout__header-row">
           <span className="android-title mdl-layout-title">
-            <img className="android-logo-image" src="images/android-logo.png" />
+            <img className="logo-image" src="/assets/images/gov-webicons-nasa.png" height="80px" />
           </span>
           <div className="android-header-spacer mdl-layout-spacer"></div>
           <div className="android-search-box mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width">
@@ -24,15 +20,6 @@ define([
               <input className="mdl-textfield__input" type="text" id="search-field" />
             </div>
           </div>
-          <div className="android-navigation-container">
-            <nav className="android-navigation mdl-navigation">
-              <a className="mdl-navigation__link mdl-typography--text-uppercase" href="">Photo Stream</a>
-              <a className="mdl-navigation__link mdl-typography--text-uppercase" href="">Albums</a>
-            </nav>
-          </div>
-          <span className="android-mobile-title mdl-layout-title">
-            <img className="android-logo-image" src="images/android-logo.png" />
-          </span>
 
         </div>
       </div>
@@ -41,6 +28,17 @@ define([
 
 });
 
+
+// <span className="android-mobile-title mdl-layout-title">
+//   <img className="android-logo-image" src="images/android-logo.png" />
+// </span>
+
+// <div className="android-navigation-container">
+//   <nav className="android-navigation mdl-navigation">
+//     <a className="mdl-navigation__link mdl-typography--text-uppercase" href="">Photo Stream</a>
+//     <a className="mdl-navigation__link mdl-typography--text-uppercase" href="">Albums</a>
+//   </nav>
+// </div>
 // <button className="android-more-button mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button">
 //   <i className="material-icons">more_vert</i>
 // </button>

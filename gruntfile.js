@@ -27,7 +27,7 @@ module.exports = function (grunt) {
 
     // resolve all 404s to index.html
     var historyAPI = require('connect-history-api-fallback')({
-      index: '/menus/'
+      index: '/'
     });
 
     var done = this.async();

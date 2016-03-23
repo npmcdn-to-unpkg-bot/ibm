@@ -46,10 +46,9 @@ var config = {
       exports: 'ReactRouter',
       deps: ['react']
     },
-    ga: { deps: ['react']},
     classnames: { exports: 'classNames'},
     app: {
-      deps: ['es6-shim']
+      deps: ['es6-shim', 'react-router']
     }
   },
 };

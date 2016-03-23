@@ -16,11 +16,12 @@ define([
     render: function() {
       return <div className="mdl-layout__drawer">
         <span className="mdl-layout-title">
-          <img className="android-logo-image" src="images/android-logo-white.png" />
+          <img className="logo-image" src="/assets/images/gov-webicons-nasa.png" width="150px" />
         </span>
         <nav className="mdl-navigation">
-          <a className="mdl-navigation__link" href="">Photo Stream</a>
-          <a className="mdl-navigation__link" href="">Albums</a>
+          <Router.Link to='home' className="mdl-navigation__link">Photo Stream</Router.Link>
+          <Router.Link to='recent' className="mdl-navigation__link">Recent</Router.Link>
+          <Router.Link to='albums' className="mdl-navigation__link">Albums</Router.Link>
         </nav>
       </div>
     }

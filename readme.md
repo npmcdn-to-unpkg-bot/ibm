@@ -16,6 +16,8 @@
   > USERID: 35067687@N04
   > URL: https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=679e25f8cb85b7299cec2734962044ac&user_id=35067687@N04&format=json&nojsoncallback=1
 
+  <!-- A comma-delimited list of extra information to fetch for each returned record. Currently supported fields are: description, license, date_upload, date_taken, owner_name, icon_server, original_format, last_update, geo, tags, machine_tags, o_dims, views, media, path_alias, url_sq, url_t, url_s, url_q, url_m, url_n, url_z, url_c, url_l, url_o -->
+
 flickr.people.getPublicPhotos
 
 
@@ -33,11 +35,12 @@ https://www.flickr.com/services/api/flickr.photos.search.html
 
 
 
-https://www.flickr.com/services/api/flickr.photos.getSizes.html
+
 
 https://www.flickr.com/services/api/flickr.galleries.getListForPhoto.html
 flickr.galleries.getListForPhoto
 Return the list of galleries to which a photo has been added. Galleries are returned sorted by date which the photo was added to the gallery.
+
 
 
 
@@ -52,8 +55,8 @@ Date Taken
 Latest
 https://www.flickr.com/services/api/flickr.photos.getRecent.html
 
-Popular
-https://www.flickr.com/services/api/flickr.stats.getPopularPhotos.html
+<!-- Popular
+https://www.flickr.com/services/api/flickr.stats.getPopularPhotos.html -->
 
 Tags
 https://www.flickr.com/services/api/flickr.tags.getListUser.html
@@ -61,6 +64,18 @@ https://api.flickr.com/services/rest/?method=flickr.tags.getListUser&api_key=679
 
 
 https://www.flickr.com/services/api/flickr.photos.getInfo.html
+
+
+
+
+Photo Info
+https://www.flickr.com/services/api/flickr.photos.getSizes.html
+
+
+  Comments
+
+  https://www.flickr.com/services/api/flickr.photos.comments.getList.html
+  flickr.photos.comments.getList
 
 ---
 

@@ -22,11 +22,14 @@ define([
   }
 
   var FlickrActions = {
-    fetchPhotos: function() {
+    fetchPhotos: function(count) {
       FlickrAPI.fetchPhotos(function (photos) {
         AppDispatcher.dispatch({
           actionType: FlickrConstants.PHOTOS_FETCH,
           photos: photos.map(function (photo) {
+
+            // NOTE: Striping out some bleh strings that muddle up the title
+            photo.title = photo.title.replace(/ *\([^)]*\) */g, "");
 
             photo.images = {
               thumb: getImageURL(photo),
@@ -36,15 +39,10 @@ define([
             return photo;
           })
         });
-      });
+      }, count);
     },
   };
 
   return FlickrActions;
 
 });
-
-
-// var sampleImgObj = { "id": "11738172576", "owner": "12218676@N04", "secret": "37d0aeb353", "server": "3803", "farm": 4, "title": "_IGP1164", "ispublic": 1, "isfriend": 0, "isfamily": 0 };
-//
-// var urlLarge = 'https://farm' + sampleImgObj.farm + '.staticflickr.com/' + sampleImgObj.server + '/' + sampleImgObj.id + '_' + sampleImgObj.secret + '_b.jpg';

@@ -5,7 +5,7 @@ module.exports = {
   },
   less: {
     files: ['assets/less/**/*.less'],
-    tasks: ['newer:less']
+    tasks: ['less']
   },
   react: {
     files: ['assets/js/components/**/*.jsx', 'assets/js/pages/*.jsx'],

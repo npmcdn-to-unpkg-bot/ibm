@@ -19,13 +19,13 @@ define([
       });
     },
 
-    searchPhotos: function () {
-      var url = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=' + apiKey + '&user_id=' + userId + '&format=json&nojsoncallback=1&per_page=100';
-
-      helpers.ajax('GET', url, function (xhr, data) {
-        success(data.photos.photo);
-      });
-    },
+    // searchPhotos: function () {
+    //   var url = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=' + apiKey + '&user_id=' + userId + '&format=json&nojsoncallback=1&per_page=100';
+    //
+    //   helpers.ajax('GET', url, function (xhr, data) {
+    //     success(data.photos.photo);
+    //   });
+    // },
 
     fetchImageInfo: function (photoId, success) {
       var url = 'https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=' + apiKey + '&user_id=' + userId + '&format=json&nojsoncallback=1&photo_id=' + photoId;

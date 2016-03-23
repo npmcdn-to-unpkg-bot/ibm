@@ -1,0 +1,52 @@
+
+.notFound-page {
+  background: @nightBlue url(../images/404.png) right bottom no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: 0; right: 0; left: 0; bottom: 0;
+  color: white;
+  text-align: center;
+
+  * {
+    background: fade(@nightBlue, 90);
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 5rem;
+    font-weight: 100;
+    margin: 0;
+    padding-top: 3rem;
+  }
+
+  p {
+    font-size: 1.4rem;
+    font-weight: 100;
+    margin: 0;
+    padding-bottom: 1rem;
+  }
+
+  @media (min-width: @screen-sm) {
+    background-size: auto;
+    text-align: left;
+
+    > * {
+      background: none;
+      padding: 3rem;
+    }
+
+    h1 {
+      font-size: 10rem;
+      padding-bottom: 0;
+    }
+
+    p {
+      font-size: 3rem;
+      font-weight: 100;
+      line-height: 3.3rem;
+      padding-top: 3rem;
+    }
+  }
+
+
+}

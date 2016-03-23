@@ -1,0 +1,31 @@
+// Photo Stream
+//-------------------------
+
+.photostream {
+  padding-top: .5rem;
+}
+
+.photostream--list {
+  background: white;
+
+  &.mdl-list {
+    margin: 0 auto;
+    max-width: @screen-md;
+  }
+
+  .mdl-list__item-primary-content {
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .mdl-list__item-avatar {
+    @size: 4rem;
+
+    background-size: cover;
+    border-radius: @size;
+    border: 1px solid @gray-light;
+    overflow: hidden;
+    width: @size;
+    height: @size;
+  }
+}

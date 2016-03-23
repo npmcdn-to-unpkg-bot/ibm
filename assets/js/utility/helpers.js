@@ -46,6 +46,12 @@ define(['moment'], function (moment) {
         } else {
           helpers.favorites.list.push(id);
         }
+
+        helpers.setCookie('favs', helpers.favorites.list.join(','))
+      },
+      clear: function () {
+        helpers.favorites.list = [];
+        helpers.removeCookie('favs');
       }
     },
 
@@ -187,6 +193,12 @@ define(['moment'], function (moment) {
       if (document.getElementsByClassName("mdl-layout").length > 0) { document.getElementsByClassName("mdl-layout")[0].scrollTop = 0; }
     }
 
+  }
+
+
+  // Load the favorites from a cookie
+  if (helpers.getCookie("favs")) {
+    helpers.favorites.list = helpers.getCookie('favs').split(',');
   }
 
   return helpers;

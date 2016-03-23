@@ -1,0 +1,122 @@
+// Photo Stream Grid
+//-------------------------
+
+.photostream--grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  .photostream-photo {
+    @size: 12.5rem;
+
+    cursor: pointer;
+    flex: 1;
+    max-width: @size;
+    min-width: @size;
+    padding: .5rem;
+    position: relative;
+    width: @size;
+
+    @media (min-width: @screen-md) {
+      @size: 17.5rem;
+
+      max-width: @size;
+      min-width: @size;
+      width: @size;
+    }
+
+    .photostream-photo-wrapper {
+      border-radius: .25rem;
+      height: @size;
+      overflow: hidden;
+      text-align: center;
+      width: 100%;
+
+      @media (min-width: @screen-md) { height: 17.5rem; }
+    }
+
+    img {
+      min-width: 100%;
+      height: auto;
+    }
+
+  }
+
+  .photostream-photo-title {
+    background: fade(@gray-darker, 20);
+    padding: .25rem .5rem;
+    font-weight: 300;
+    color: white;
+    z-index: 2;
+    position: absolute;
+    top: .5rem; bottom: .5rem; right: .5rem; left: .5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 1rem;
+
+    &:before {
+      opacity: .1;
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 100%;
+      content: " ";
+      z-index: -1;
+      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7d7e7d+0,0e0e0e+100;Black+3D */
+      background: rgb(125,126,125); /* Old browsers */
+      background: -moz-linear-gradient(top,  rgba(125,126,125,1) 0%, rgba(14,14,14,1) 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 ); /* IE6-9 */
+
+      transition: .2s height ease;
+    }
+
+    &:hover:before {
+      background: fade(@gray-darker, 90);
+      opacity: .9;
+      top: auto;
+      height: 3.5rem;
+      transition: .2s all ease-in;
+    }
+  }
+
+  .photostream-photo-title-text {
+    display: inline-block;
+    font-size: .9rem;
+    overflow: hidden;
+    padding-right: 1rem;;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    text-shadow: 1px 0 @gray-dark;
+  }
+
+  .photostream-photo--empty {
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+
+  // Comfy Grid
+  //-------------------------
+
+  &.photostream--grid--comfy {
+    @pad: 2rem;
+    @size: 30rem;
+
+    .photostream-photo {
+      max-width: @size;
+      min-width: @size;
+      padding: @pad;
+      position: relative;
+      width: @size;
+    }
+
+    .photostream-photo-title {
+      top: @pad; left: @pad; right: @pad; bottom: @pad;
+    }
+  }
+}

@@ -1,21 +1,26 @@
 define([
   'react', 'react-router',
   'pages/app', 'pages/NotFound',
-  'pages/Home', 'pages/Recent', 'pages/Albums'
+  'pages/Home', 'pages/About'
 ], function (
   React, Router,
   App, NotFound,
-  Home,Recent,Albums
+  Home, About
 ) {
 
   return (
     <Router.Route name="app" path={"/"} handler={App}>
       <Router.Route handler={Home} />
-      <Router.Route name="home" path="index.html" handler={Home} />
-      <Router.Route name="recent" path="recent/" handler={Recent} />
-      <Router.Route name="albums" path="albums/" handler={Albums} />
-      <Router.Route name="404" path="*" handler={NotFound} />
+      <Router.Route name="home" path="/" handler={Home} />
+      <Router.Route name="home-full" path="/index.html" handler={Home} />
+      <Router.Route name="about" path="about/" handler={About} />
+      <Router.Route name="404" path="404" handler={NotFound} />
+      <Router.Route name="404-catch" path="*" handler={NotFound} />
     </Router.Route>
   );
 
 });
+
+
+// <Router.Route name="recent" path="recent/" handler={Recent} />
+// <Router.Route name="albums" path="albums/" handler={Albums} />

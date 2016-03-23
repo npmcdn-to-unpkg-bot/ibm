@@ -29,15 +29,17 @@ define([
 
     componentWillMount: function () {
       FlickrAPI.fetchImageInfo(this.props.id, function (data) {
-        this.setState({
-          comments: data.comments._content,
-          dates: data.dates,
-          dateuploaded: data.dateuploaded,
-          description: data.description._content,
-          urls: data.urls,
-          tags: data.tags,
-          views: data.views,
+        if (this.isMounted()) {
+          this.setState({
+            comments: data.comments._content,
+            dates: data.dates,
+            dateuploaded: data.dateuploaded,
+            description: data.description._content,
+            urls: data.urls,
+            tags: data.tags,
+            views: data.views,
         })
+        }
       }.bind(this));
     },
 
@@ -78,6 +80,7 @@ define([
           </div>
 
           <div className="photo-details-actions">
+            <a href={this.props.images.full} download={this.props.images.full} className="action mdl-button mdl-js-button mdl-js-ripple-effect action--left"> <i className="material-icons">file_download</i>Download</a>
 
             <span id="a3" className="action mdl-button mdl-js-button mdl-js-ripple-effect"> <i className="material-icons">remove_red_eye</i>{this.state.views}</span>
             <div className="mdl-tooltip mdl-tooltip--large" htmlFor="a3">Views</div>

@@ -1,26 +1,21 @@
 define([
-  'react', 'react-router'
+  'react',
 ], function (
-  React, Router
+  React
 ) {
 
-  var NotFound = React.createClass({
-
-    // Definition
-    //-------------------------
-    mixins: [ Router.Navigation ],
+  return React.createClass({
 
     // Lifecycle Methods
     //-------------------------
     render: function () {
       return (
-        <div className="notFound-page animated fadeIn">
-          <p>We couldn't find that page... launched into space.</p>
+        <div className="notFound-page">
+          <h1>Houston</h1>
+          <p>We have a problem.</p>
         </div>
       );
     }
   });
-
-  return NotFound;
 
 });

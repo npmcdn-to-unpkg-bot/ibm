@@ -87,7 +87,6 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     (isProd ? 'clean' : 'skip'),
     'curl',
-    'responsive_images',
     'copy:prebuild',
     'codekit',                // build static files
     'less',                   // compile and generate css

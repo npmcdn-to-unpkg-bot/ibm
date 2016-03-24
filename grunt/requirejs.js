@@ -21,6 +21,7 @@ var config = {
     'moment': '<%=node_dir%>moment/moment',
     'react-dom': '<%=node_dir%>react-dom/dist/react-dom',
     'react-router': '<%=temp_dir%>ReactRouter',
+    'material': '<%=temp_dir%>material',
     'react': '<%=node_dir%>react/dist/react',
 
 
@@ -48,7 +49,7 @@ var config = {
     },
     classnames: { exports: 'classNames'},
     app: {
-      deps: ['es6-shim', 'react-router']
+      deps: ['material', 'es6-shim', 'react-router']
     }
   },
 };

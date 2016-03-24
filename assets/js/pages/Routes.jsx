@@ -20,7 +20,3 @@ define([
   );
 
 });
-
-
-// <Router.Route name="recent" path="recent/" handler={Recent} />
-// <Router.Route name="albums" path="albums/" handler={Albums} />

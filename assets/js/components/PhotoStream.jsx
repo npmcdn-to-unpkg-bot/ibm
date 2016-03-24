@@ -128,6 +128,3 @@ define([
   });
 
 });
-
-
-// {photo.title + " " + photo.images.thumb}

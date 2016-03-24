@@ -1,13 +1,7 @@
 define([
-  'react',
-  'stores/PhotoStore', 'actions/FlickrActions',
-  'components/PhotoStream',
-  'utility/helpers'
+  'react', 'stores/PhotoStore', 'actions/FlickrActions', 'components/PhotoStream', 'utility/helpers'
 ], function (
-  React,
-  PhotoStore, FlickrActions,
-  PhotoStream,
-  helpers
+  React, PhotoStore, FlickrActions, PhotoStream, helpers
 ) {
 
   return React.createClass({
@@ -30,16 +24,16 @@ define([
       FlickrActions.fetchPhotos(count, page);
     },
 
-    updateView: function (view) {
-      this.setState({view: view});
-    },
+    updateView: function (view) { this.setState({view: view}); },
 
-    renderPaginationButton(page) {
+    renderPaginationButton: function (page) {
       if (this.state.page === page) {
         return <button key="pagination_active" className="mdl-button mdl-js-button mdl-button--fab">{page}</button>
       }
 
-      return <button key={"pagination" + page} className="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect" onClick={this.updatePhotos.bind(null, this.state.perpage, page )}>{page}</button>
+      return <button key={"pagination" + page} className="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect" onClick={this.updatePhotos.bind(null, this.state.perpage, page)}>
+        {page}
+      </button>
     },
 
     renderPagination: function () {
@@ -151,9 +145,3 @@ define([
   });
 
 });
-
-
-//
-// <button id="" className="mdl-button mdl-js-button mdl-button--icon">
-//   <i className="material-icons">view_compact</i>
-// </button>

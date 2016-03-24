@@ -1,15 +1,8 @@
 define([
-  'react',
-  'classnames',
-  'apis/FlickrAPI',
-  'utility/helpers'
-], function(
-  React,
-  classNames,
-  FlickrAPI,
-  helpers
+  'react', 'classnames', 'apis/FlickrAPI', 'utility/helpers'
+], function (
+  React, classNames, FlickrAPI, helpers
 ) {
-
 
   return React.createClass({
     getInitialState: function () {
@@ -38,7 +31,7 @@ define([
             urls: data.urls,
             tags: data.tags,
             views: data.views,
-        })
+          });
         }
       }.bind(this));
     },
@@ -96,35 +89,3 @@ define([
   });
 
 });
-
-
-// <span id="a1" className="action mdl-button mdl-js-button mdl-js-ripple-effect"> <i className="material-icons">favorite</i>39</span>
-// <div className="mdl-tooltip mdl-tooltip--large" htmlFor="a1">Comments</div>
-
-
-  // comments: Object
-  // dates: Object
-  // dateuploaded: "1458479589"
-  // description: Object
-  // editability: Object
-  // farm: 2
-  // id: "25905311576"
-  // isfavorite: 0
-  // license: "3"
-  // media: "photo"
-  // notes: Object
-  // originalformat: "jpg"
-  // originalsecret: "65ba7aaf0c"
-  // owner: Object
-  // people: Object
-  // publiceditability: Object
-  // rotation: 0
-  // safety_level: "0"
-  // secret: "6f0da62287"
-  // server: "1520"
-  // tags: Object
-  // title: Object
-  // urls: Object
-  // usage: Object
-  // views: "1130"
-  // visibility: Object

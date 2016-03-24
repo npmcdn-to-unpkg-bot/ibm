@@ -5,7 +5,7 @@ RUN apt-get install imagemagick
 RUN npm install -g grunt
 RUN npm install -g grunt-cli
 
-WORKDIR /menus
+WORKDIR /
 
 EXPOSE 3000
 

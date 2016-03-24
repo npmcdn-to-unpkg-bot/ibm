@@ -4,7 +4,7 @@ module.exports = {
       '**/*.{js,css,png,jpg,gif,svg}',
       '!**/app.min.js'
     ],
-    baseDir: "deploy/menus/",
+    baseDir: "deploy/",
     encoding: 'utf8',
     algorithm: 'md5',
     length: 16,
@@ -13,7 +13,7 @@ module.exports = {
   assets: {
     files: [{
       expand: true,
-      cwd: 'deploy/menus/',
+      cwd: 'deploy/',
       src: ['**/*.{html,css,js}']
     }]
   }

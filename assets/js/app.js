@@ -5,7 +5,7 @@ window.favorites = [];
 // Launch the App
 //-------------------------
 require([
-  'react', 'react-dom', 'react-router', 'pages/Routes', 'actions/FlickrActions'
+  'react', 'react-dom', 'react-router', 'pages/Routes', 'actions/FlickrActions', 'material'
 ], function (
   React, ReactDOM, Router, Routes, FlickrActions
 ) {

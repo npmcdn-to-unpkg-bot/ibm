@@ -20,3 +20,35 @@
 
 @import 'photostream';
 @import 'photostream--grid';
+
+
+// This is a workaround for a known issue with MDL
+// https://github.com/google/material-design-lite/issues/1072#issuecomment-123445135
+//-------------------------
+
+html, body {
+  overflow-y: auto !important;
+  min-height: 100% !important;
+}
+
+.mdl-layout {
+  min-height: 100% !important;
+  &::-webkit-scrollbar { width: 0 !important }
+
+  @media (max-device-width: @screen-lg) and (-webkit-min-device-pixel-ratio: 2) { overflow: visible !important; }
+}
+
+.mdl-layout__drawer { position: fixed !important; }
+
+.mdl-layout__container {
+  height: auto !important;
+  // min-height: 100% !important;
+}
+.mdl-layout__content {
+    display: block;
+    overflow: visible !important;
+}
+.is-small-screen .mdl-layout__content { }
+
+// .mdl-layout__header { position: fixed; }
+.mdl-layout__obfuscator { position: fixed !important; }

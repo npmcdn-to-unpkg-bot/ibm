@@ -110,7 +110,7 @@ define([
                 </li>
 
                 <li className="mdl-list__item mdl-list__item--two-line">
-                  <a href="https://www.google.com/fonts/specimen/Roboto/" className="mdl-list__item-primary-content">
+                  <a href="https://www.google.com/fonts/specimen/Roboto" className="mdl-list__item-primary-content">
                     <span><i className="material-icons spaceRight">font_download</i> Roboto</span>
                     <span className="mdl-list__item-sub-title">google.com/fonts/specimen/Roboto</span>
                   </a>

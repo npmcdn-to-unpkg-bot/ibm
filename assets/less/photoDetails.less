@@ -5,12 +5,15 @@
   display: flex;
   flex-direction: row;
   flex: 1 1 100%;
-  padding: 1rem;
   position: fixed;
-  top: 54px; right: 0; left: 0; bottom: 0;
+  top: 0; right: 0; left: 0; bottom: 0;
   z-index: 9999;
+  overflow-y: scroll;
 
-  @media (min-width: @screen-md) { top: 64px; }
+  @media (min-width: @screen-md) {
+    padding: 1rem;
+    top: 64px;
+  }
 }
 
 .photostream-photo-details-close {
@@ -64,6 +67,11 @@
 
 .photo-details-info-desc {
   padding: 0 2rem 1rem;
+
+  @media (max-width: @screen-sm) {
+    max-height: 10rem;
+    overflow-y: scroll;
+  }
 }
 
 .photo-details-actions {

@@ -22,11 +22,15 @@ define([
   }
 
   var FlickrActions = {
-    fetchPhotos: function(count) {
-      FlickrAPI.fetchPhotos(function (photos) {
+    fetchPhotos: function(count, page) {
+      FlickrAPI.fetchPhotos(function (data) {
         AppDispatcher.dispatch({
           actionType: FlickrConstants.PHOTOS_FETCH,
-          photos: photos.map(function (photo) {
+          page: data.page,
+          pages: data.pages,
+          perpage: data.perpage,
+          total: data.total,
+          photos: data.photo.map(function (photo) {
 
             // NOTE: Striping out some bleh strings that muddle up the title
             photo.title = photo.title.replace(/ *\([^)]*\) */g, "");
@@ -39,7 +43,7 @@ define([
             return photo;
           })
         });
-      }, count);
+      }, count, page);
     },
   };
 

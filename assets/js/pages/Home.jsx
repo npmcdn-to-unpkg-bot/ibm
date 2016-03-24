@@ -14,7 +14,7 @@ define([
 
     updateStateFromStore: function () { this.setState(this.getStateFromStore()); },
 
-    getStateFromStore: function () { return { photos: PhotoStore.getPhotos() } },
+    getStateFromStore: function () { return PhotoStore.getDetails() },
 
     getInitialState: function () {
       var state = this.getStateFromStore();
@@ -22,13 +22,74 @@ define([
       return state;
     },
 
-    updatePhotos: function (count) {
-      this.setState({photos: []});
-      FlickrActions.fetchPhotos(count);
+    updatePhotos: function (count, page) {
+      this.setState({
+        photos: [],
+        pages: 0
+      });
+      FlickrActions.fetchPhotos(count, page);
     },
 
     updateView: function (view) {
       this.setState({view: view});
+    },
+
+    renderPaginationButton(page) {
+      if (this.state.page === page) {
+        return <button key="pagination_active" className="mdl-button mdl-js-button mdl-button--fab">{page}</button>
+      }
+
+      return <button key={"pagination" + page} className="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" onClick={this.updatePhotos.bind(null, this.state.perpage, page )}>{page}</button>
+    },
+
+    renderPagination: function () {
+      if (this.state.pages === 0) { return null; }
+      var visibleLinks = 4;
+      var page = this.state.page;
+      var pages = this.state.pages;
+      var links = [];
+      var appendLastPage = false;
+      var prependFirstPage = page > visibleLinks || page > 3;
+
+      var floor = page - 2;
+
+      if (page > pages - visibleLinks) {
+        floor = pages - visibleLinks + 1;
+      } else {
+        appendLastPage = true;
+      }
+
+      if (prependFirstPage) {
+        links.push(this.renderPaginationButton(1));
+        links.push(<span key="pagination_spacer_start" className="pagination_spacer">...</span>);
+      }
+      for (var i = floor; i < floor + visibleLinks; i++) {
+        if (i > 0 && i <= pages) {
+          links.push(this.renderPaginationButton(i));
+        } else if (i < 1) {
+          visibleLinks++;
+        }
+      }
+
+      if (appendLastPage) {
+        links.push(<span key="pagination_spacer_end" className="pagination_spacer">...</span>);
+        links.push(this.renderPaginationButton(this.state.pages));
+      }
+
+      return <div className="pagination"> {links} </div>
+    },
+
+    renderLoading: function () {
+      return <div className="loading message mdl-card">
+
+        <div className="mdl-spinner mdl-js-spinner is-active" key="loading"></div>
+        <h1>
+          Loading
+        </h1>
+
+        <p>Prepping for launch.</p>
+
+      </div>
     },
 
     // Lifecycle Methods
@@ -40,13 +101,15 @@ define([
     componentDidUpdate: function () { if (componentHandler) { componentHandler.upgradeDom(); } },
 
     render: function () {
-      var content = this.state.photos.length > 0 ? <PhotoStream key="content" photos={this.state.photos} view={this.state.view} /> : <div className="mdl-spinner mdl-js-spinner is-active" key="loading"></div>;
+      var content = this.state.photos.length > 0 ? <PhotoStream key="content" photos={this.state.photos} view={this.state.view} /> : this.renderLoading();
+
+      // content = this.renderLoading();
 
       return <div>
 
           <div className="pageTitle" key="pageTitle">
 
-            <h1>Photostream</h1>
+            <h1>Photostream <small>({this.state.total})</small></h1>
 
               <button id="view_list" className="mdl-button mdl-js-button mdl-button--icon"  onClick={this.updateView.bind(null, "list")}>
                 <i className="material-icons">view_list</i>
@@ -79,6 +142,8 @@ define([
           </div>
 
           {content}
+
+          {this.renderPagination()}
 
         </div>;
     }

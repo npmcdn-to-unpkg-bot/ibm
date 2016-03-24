@@ -60,6 +60,7 @@ define([
       var className = classNames("photostream--grid", { "photostream--grid--comfy" : this.props.view === "comfy" });
 
       return <div className={className}>
+
         {this.props.photos.map(function (photo, index) {
 
             var key = photo.id;

@@ -16,12 +16,22 @@ var CHANGE_EVENT = 'change';
 
 // store private variables
 var _photos = [];  // currently photos
+var _pages = null;
+var _page = null;
+var _total = null;
 
 var PhotoStore = assign({}, EventEmitter.prototype, {
 
   // Store state accessors
   //-------------------------
-
+  getDetails: function () {
+    return {
+      photos: _photos,
+      pages: _pages,
+      page: _page,
+      total: _total,
+    }
+  },
   getPhotos: function() {
     return _photos;
   },
@@ -46,6 +56,10 @@ AppDispatcher.register(function(action) {
   switch(action.actionType) {
     case FlickrConstants.PHOTOS_FETCH:
       _photos = action.photos;
+      _pages = action.pages;
+      _page = action.page;
+      _total = action.total;
+
       PhotoStore.emitChange();
       break;
     default:

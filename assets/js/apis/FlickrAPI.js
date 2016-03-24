@@ -8,14 +8,15 @@ define([
   var userId = '35067687@N04';
 
   var FlickrAPI = {
-    fetchPhotos: function (success, count) {
+    fetchPhotos: function (success, count, jumpTo) {
 
       var photoCount = count = count || 25;
+      var page = jumpTo || 1;
 
-      var url = 'https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=' + apiKey + '&user_id=' + userId + '&format=json&nojsoncallback=1&per_page=' + photoCount;
+      var url = 'https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=' + apiKey + '&user_id=' + userId + '&format=json&nojsoncallback=1&per_page=' + photoCount + '&page=' + page;
 
       helpers.ajax('GET', url, function (xhr, data) {
-        success(data.photos.photo);
+        success(data.photos);
       });
     },
 

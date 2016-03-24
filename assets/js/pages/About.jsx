@@ -25,7 +25,7 @@ define([
                 <h1 className="mdl-card__title-text">IBM FED Challenge</h1>
               </div>
 
-              <h3>Created by Kyle Wiedman - March 2016</h3>
+              <h3>Kyle Wiedman - March 2016</h3>
 
               <div className="mdl-card__supporting-text">
                 <p>A Flickr web-app that fetches images from Nasa's account via the <a href="https://github.com/ibmfrontend/fedexercise/blob/master/API_DETAILS.md">Flickr API</a>.</p>
@@ -76,7 +76,7 @@ define([
 
                   <li className="mdl-list__item mdl-list__item--two-line">
                     <a href="https://github.com/reactjs/react-router" className="mdl-list__item-primary-content">
-                      <span><i className="material-icons spaceRight">link</i> Flux</span>
+                      <span><i className="material-icons spaceRight">link</i> React-Router</span>
                       <span className="mdl-list__item-sub-title">github.com/reactjs/react-router</span>
                     </a>
                   </li>
@@ -97,28 +97,28 @@ define([
 
                 <li className="mdl-list__item mdl-list__item--two-line">
                   <a href="http://instantlogosearch.com/?q=nasa" className="mdl-list__item-primary-content">
-                    <span><i className="material-icons spaceRight">link</i> Nasa Logo</span>
+                    <span><i className="material-icons spaceRight">photo</i> NASA Logo</span>
                     <span className="mdl-list__item-sub-title">instantlogosearch.com</span>
                   </a>
                 </li>
 
                 <li className="mdl-list__item mdl-list__item--two-line">
                   <a href="https://design.google.com/icons/" className="mdl-list__item-primary-content">
-                    <span><i className="material-icons spaceRight">link</i> MDL Icon Font</span>
+                    <span><i className="material-icons spaceRight">font_download</i> MDL Icon Font</span>
                     <span className="mdl-list__item-sub-title">design.google.com/icons</span>
                   </a>
                 </li>
 
                 <li className="mdl-list__item mdl-list__item--two-line">
                   <a href="https://www.google.com/fonts/specimen/Roboto/" className="mdl-list__item-primary-content">
-                    <span><i className="material-icons spaceRight">link</i> Roboto</span>
+                    <span><i className="material-icons spaceRight">font_download</i> Roboto</span>
                     <span className="mdl-list__item-sub-title">google.com/fonts/specimen/Roboto</span>
                   </a>
                 </li>
 
                 <li className="mdl-list__item mdl-list__item--two-line">
                   <a href="http://hdphonewallpapers.com/galaxy-s4/wallpaper/cartoon-shuttle-launch" className="mdl-list__item-primary-content">
-                    <span><i className="material-icons spaceRight">link</i> Shuttle Launch</span>
+                    <span><i className="material-icons spaceRight">photo</i> Shuttle Launch</span>
                     <span className="mdl-list__item-sub-title">hdphonewallpapers.com/galaxy-s4/wallpaper/cartoon-shuttle-launch</span>
                   </a>
                 </li>

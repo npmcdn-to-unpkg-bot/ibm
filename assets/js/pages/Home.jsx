@@ -39,12 +39,12 @@ define([
         return <button key="pagination_active" className="mdl-button mdl-js-button mdl-button--fab">{page}</button>
       }
 
-      return <button key={"pagination" + page} className="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" onClick={this.updatePhotos.bind(null, this.state.perpage, page )}>{page}</button>
+      return <button key={"pagination" + page} className="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect" onClick={this.updatePhotos.bind(null, this.state.perpage, page )}>{page}</button>
     },
 
     renderPagination: function () {
       if (this.state.pages === 0) { return null; }
-      var visibleLinks = 4;
+      var visibleLinks = 5;
       var page = this.state.page;
       var pages = this.state.pages;
       var links = [];
@@ -103,13 +103,13 @@ define([
     render: function () {
       var content = this.state.photos.length > 0 ? <PhotoStream key="content" photos={this.state.photos} view={this.state.view} /> : this.renderLoading();
 
-      // content = this.renderLoading();
+      var photoCount = this.state.total ? <small>({this.state.total})</small> : null;
 
       return <div>
 
           <div className="pageTitle" key="pageTitle">
 
-            <h1>Photostream <small>({this.state.total})</small></h1>
+            <h1>Photostream {photoCount}</h1>
 
               <button id="view_list" className="mdl-button mdl-js-button mdl-button--icon"  onClick={this.updateView.bind(null, "list")}>
                 <i className="material-icons">view_list</i>
@@ -126,12 +126,13 @@ define([
               </button>
               <div className="mdl-tooltip" htmlFor="view_grid">Grid</div>
 
-            <button id="demo-menu-lower-right" className="mdl-button mdl-js-button mdl-button--icon">
+            <button id="options_menu" className="mdl-button mdl-js-button mdl-button--icon">
               <i className="material-icons">more_vert</i>
             </button>
+            <div className="mdl-tooltip" htmlFor="options_menu">Options</div>
 
             <ul className="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-                htmlFor="demo-menu-lower-right">
+                htmlFor="options_menu">
 
               {[10,25,50,100,250,500].map(function (count, index) {
                 return <li key={"gallery_size_" + index} className="mdl-menu__item" onClick={this.updatePhotos.bind(null, count)}>Show {count} Photos</li>

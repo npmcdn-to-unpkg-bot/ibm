@@ -1,0 +1,41 @@
+.pagination {
+  @height: 5rem;
+
+  background: @gray-lightest;
+  border-top: 1px solid @gray-lighter;
+  bottom: 0; left: 0; right: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: @height;
+  justify-content: center;
+  line-height: @height;
+  padding: 0 @height / 2;
+  position: fixed;
+  z-index: 9998;
+
+  @media (max-width: @screen-sm) {
+    padding: 0;
+  }
+
+  button.mdl-button.mdl-js-button {
+    @size: @height / 2;
+    
+    font-size: @size / 3;
+    font-weight: 300;
+    height: @size;
+    margin: @height / 4 1rem;
+    max-height: @size;
+    max-width: @size;
+    min-width: @size;
+    width: @size;
+
+    @media (max-width: @screen-sm) {
+      margin: @height / 4 .5rem;
+    }
+
+    &.mdl-button--colored {
+      background-color: lighten(@nightBlue, 20);
+    }
+  }
+}

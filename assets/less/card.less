@@ -1,0 +1,88 @@
+
+.mdl-card {
+  height: auto;
+  min-height: 0;
+  padding: 1rem;
+  width: 100%;
+
+  h1 {
+    color: @gray-light;
+    font-size: 2.88rem;
+    font-weight: 100;
+    margin-bottom: 0;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 100;
+    margin-bottom: 0;
+    margin-top: 0;
+    color: @gray-light;
+  }
+
+  h3 {
+    border-bottom: 1px dashed @gray-lighter;
+    color: @gray-light2;
+    font-size: 1.3rem;
+    font-weight: 100;
+    margin: 0;
+    padding-bottom: .75rem;
+    padding-left: 1rem;
+  }
+
+  p { color: @gray; }
+
+  img {
+    height: auto;
+    width: 100%;
+  }
+}
+
+.mdl-card .mdl-list {
+  margin: 0 !important;
+  padding: 0 !important;
+
+  .material-icons {
+    display: inline;
+    vertical-align: text-top;
+    font-size: 1.3rem;
+  }
+
+  .mdl-list__item.mdl-list__item--two-line span {
+    line-height: 1.3rem !important;
+  }
+
+  .mdl-list__item.mdl-list__item--two-line .mdl-list__item-sub-title {
+    padding: .25rem 2rem;
+  }
+}
+
+.material-icons.spaceRight {
+  margin-right: .5rem;
+}
+
+.mdl-card.loading {
+  background: @nightBlue url(../images/404.png) bottom right no-repeat;
+  background-size: contain;
+  min-height: 20rem;
+  width: 90%;
+  margin: 3rem auto;
+  padding: 1rem;
+
+  h1 {
+    text-transform: uppercase;
+    padding: 1rem 0;
+    color: white;
+  }
+
+  p {
+    color: white;
+  }
+
+  .mdl-spinner {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    border: 0 !important;
+  }
+}

@@ -45,7 +45,22 @@ define([
           </span>
 
           <span className="mdl-list__item-secondary-content">
-            <a className="mdl-list__item-secondary-action" href="#"><i className="material-icons">more_vert</i></a>
+              <button id={"options_menu_" + key} className="mdl-button mdl-js-button mdl-button--icon">
+                <i className="material-icons">more_vert</i>
+              </button>
+              <div className="mdl-tooltip" htmlFor="options_menu">Options</div>
+
+              <ul className="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                  htmlFor={"options_menu_" + key}>
+
+                  <li className="mdl-menu__item" onClick={this.onPhotoClick.bind(null,photo)}>
+                    View
+                  </li>
+                  <li className="mdl-menu__item">
+                    <a href={photo.images.full} download={photo.images.full} className="mdl-navigation__link">Download</a>
+                  </li>
+              </ul>
+
           </span>
 
         </li>;
